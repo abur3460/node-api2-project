@@ -1,0 +1,16 @@
+const express = require('express');
+const db = require('./data/db');
+const router = require('./router')
+const server = express();
+
+server.use(express.json());
+
+server.get('/', (req, res) => {
+  res.send(`
+    <h2>Austin's API</h>
+  `);
+});
+
+server.use('/api', router)
+
+module.exports = server;
